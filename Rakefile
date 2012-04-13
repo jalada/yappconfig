@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "app-config"
-  gem.homepage = "http://github.com/jalada/app-config"
+  gem.homepage = "http://github.com/newsinternational/app-config"
   gem.license = "MIT"
   gem.summary = %Q{An application config, best for Rails apps}
   gem.description = %Q{app-config provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications}

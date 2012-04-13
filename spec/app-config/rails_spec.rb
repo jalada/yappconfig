@@ -19,5 +19,17 @@ describe "AppConfig with Rails" do
     AppConfig.configuration.config_file.should == Rails.root.join("config/config.yml")
   end
 
+  it "Auto reloads if the Rails environment is development" do
+    Rails.env = "development"
+    AppConfig::Railtie.initializers.map{|i| i.run}
+    AppConfig.configuration.auto_reload.should == true
+  end
+
+  it "Doesn't auto-reload if the Rails environment is production" do
+    Rails.env = "production"
+    AppConfig::Railtie.initializers.map{|i| i.run}
+    AppConfig.configuration.auto_reload.should_not == true
+  end
+
 
 end

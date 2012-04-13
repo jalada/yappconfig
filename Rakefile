@@ -21,7 +21,8 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{app-config provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications}
   gem.email = "jalada@gmail.com"
   gem.authors = ["David Somers"]
-  # dependencies defined in Gemfile
+
+  gem.files.exclude 'spec/dummy'
 end
 Jeweler::RubygemsDotOrgTasks.new
 

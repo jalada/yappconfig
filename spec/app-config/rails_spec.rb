@@ -1,23 +1,22 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe "AppConfig with Rails" do
-  before(:each) do
-    AppConfig::Rails = Object.new
-    AppConfig::Rails.stub(:env).and_return("development")
-    AppConfig::Rails.stub(:root) { Pathname.new(File.expand_path(File.dirname(__FILE__) + "/..")) }
-    AppConfig.configure {}
-  end
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../../dummy/config/environment.rb",  __FILE__)
 
-  after(:each) do
-    AppConfig.send(:remove_const, :Rails)
+require 'app-config/railtie'
+
+describe "AppConfig with Rails" do
+
+  before :each do 
+    AppConfig::Railtie.initializers.map{|i| i.run}
   end
 
   it "Should default to the Rails environment" do
-    AppConfig.configuration.environment.should == AppConfig::Rails.env
+    AppConfig.configuration.environment.should == Rails.env
   end
 
   it "Should default to Rails.root/config/config.yml" do
-    AppConfig.configuration.config_file.should == AppConfig::Rails.root.join("config/config.yml")
+    AppConfig.configuration.config_file.should == Rails.root.join("config/config.yml")
   end
 
 

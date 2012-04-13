@@ -1,3 +1,5 @@
+require 'app-config/railtie' if defined?(Rails)
+
 # Public: Application Configuration singleton. Config is stored within as 
 # a class
 module AppConfig
@@ -66,8 +68,6 @@ module AppConfig
     # Private: Set default configuration values that haven't been set by
     # the user
     def defaults
-      @config_file ||= Rails.root.join("config", "config.yml") if defined? Rails
-      @environment ||= Rails.env if defined?(Rails)
       @auto_reload ||= @environment == "production" ? false : true
     end
 

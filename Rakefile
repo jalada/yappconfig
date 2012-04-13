@@ -18,9 +18,9 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/jalada/app-config"
   gem.license = "MIT"
   gem.summary = %Q{An application config, best for Rails apps}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{app-config provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications}
   gem.email = "jalada@gmail.com"
-  gem.authors = ["David Somers --user-email jalada@gmail.com"]
+  gem.authors = ["David Somers"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

@@ -1,0 +1,6 @@
+defaults: &defaults
+
+  :test_key: "value"
+
+development:
+  <<: *defaults

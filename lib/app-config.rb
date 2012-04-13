@@ -19,12 +19,12 @@ module AppConfig
     # environment - optional, environment to pick in the configuration file.
     #
     # Returns the new config.
-    def initialize(options={})
-      @filename = options[:filename]
-      yaml = YAML.load(ERB.new(IO.read @filename).result)
-      yaml = yaml[options[:environment]] if options[:environment]
+    def initialize(options)
+      @options = options
+      yaml = YAML.load(ERB.new(IO.read @options.config_file).result)
+      yaml = yaml[@options.environment] if @options.environment
       @config = Hashie::Mash.new(yaml)
-      @last_mtime = File.mtime @filename
+      @last_mtime = File.mtime @options.config_file
       @config
     end
 
@@ -33,8 +33,8 @@ module AppConfig
     #
     # Returns the result of applying the method to the config object.
     def method_missing(method, *args, &block)
-      if @auto_reload and @last_mtime and @last_mtime != File.mtime(@filename)
-        initialize
+      if @options.auto_reload and @last_mtime and @last_mtime != File.mtime(@options.config_file)
+        initialize(@options)
       end
       @config.__send__(method, *args, &block)
     end
@@ -79,7 +79,7 @@ module AppConfig
 
   def self.method_missing(method, *args, &block)
     if @klass || self.configuration.config_file
-      @klass ||= Config.new(filename: self.configuration.config_file, environment: self.configuration.environment)
+      @klass ||= Config.new(self.configuration)
       @klass.__send__(method, *args, &block)
     else
       raise Error, "Please set a config_file with AppConfig.configure first"

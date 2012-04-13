@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "app-config"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Somers"]
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "spec/app-config/rails_spec.rb",
     "spec/app-config_spec.rb",
     "spec/config/config.yml",
+    "spec/config/reloader.yml",
     "spec/config/single_stage.yml",
     "spec/config/test.yml",
     "spec/dummy/.gitignore",

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "app-config"
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Somers"]
-  s.date = "2012-04-13"
+  s.date = "2012-06-11"
   s.description = "app-config provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications"
   s.email = "jalada@gmail.com"
   s.extra_rdoc_files = [
@@ -89,7 +89,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/newsinternational/app-config"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.21"
+  s.rubygems_version = "1.8.23"
   s.summary = "An application config, best for Rails apps"
 
   if s.respond_to? :specification_version then

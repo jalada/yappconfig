@@ -1,4 +1,5 @@
 require 'app-config/railtie' if defined?(Rails)
+require 'erb'
 
 # Public: Application Configuration singleton. Config is stored within as 
 # a class

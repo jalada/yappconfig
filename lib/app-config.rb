@@ -24,7 +24,7 @@ module AppConfig
       @options = options
       yaml = YAML.load(ERB.new(IO.read @options.config_file).result)
       yaml = yaml[@options.environment] if @options.environment
-      @config = Hashie::Mash.new(yaml)
+      @config = Hashie::Mash.new yaml
       @last_mtime = File.mtime @options.config_file
       @config
     end
@@ -34,8 +34,8 @@ module AppConfig
     #
     # Returns the result of applying the method to the config object.
     def method_missing(method, *args, &block)
-      if @options.auto_reload and @last_mtime and @last_mtime != File.mtime(@options.config_file)
-        initialize(@options)
+      if @options.auto_reload and @last_mtime != File.mtime(@options.config_file)
+        initialize @options
       end
       @config.__send__(method, *args, &block)
     end

@@ -58,6 +58,16 @@ describe "AppConfig" do
     end
 
     describe "With auto-reload" do
+      before :all do
+        @original = File.read config_file("reloader.yml")
+      end
+
+      after :each do
+        f = File.open(config_file("reloader.yml"), "w")
+        f.write @original
+        f.close
+      end
+
       before :each do
         AppConfig.configure do |config|
           config.config_file = config_file("reloader.yml")
@@ -67,14 +77,10 @@ describe "AppConfig" do
 
       it "Should auto_reload on file change" do
         AppConfig.test_key.should == 1
-        original = File.open(config_file("reloader.yml"), "r").read
         f = File.open(config_file("reloader.yml"), "w")
-        f.write(original.gsub(/1/, "2"))
+        f.write(@original.gsub(/1/, "2"))
         f.close
         AppConfig.test_key.should == 2
-        f = File.open(config_file("reloader.yml"), "w")
-        f.write(original)
-        f.close
       end
     end
   end

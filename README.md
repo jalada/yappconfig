@@ -4,7 +4,8 @@ A clean way to use a YAML file for configuration.
 
 ## Configuring
 
-In Rails, AppConfig should Just Work™. For everything else you can configure it using a `configure` block: 
+In Rails, AppConfig should Just Work™. For everything else you can configure it
+using a `configure` block: 
 
     AppConfig.configure do |config|
       config.config_file = "/path/to/config" # Default in Rails app is config/config.yml.
@@ -12,9 +13,12 @@ In Rails, AppConfig should Just Work™. For everything else you can configure i
       config.auto_reload = false # Defaults to true.
     end
 
-## Sample configuration file
+## Sample configuration files
 
-AppConfig supports single stage and multi-stage files. In Rails it will expect a multi-stage file where the stages correspond with your Rails environment variable. It will also expect the configuration file to be in `config/config.yml` in the root of your application.
+AppConfig supports single stage and multi-stage files. In Rails it will expect
+a multi-stage file where the stages correspond with your Rails environment
+variable. It will also expect the configuration file to be in
+`config/config.yml` in the root of your application.
 
 ### Single stage example
 
@@ -24,7 +28,8 @@ AppConfig supports single stage and multi-stage files. In Rails it will expect a
 
 ### Multi-stage example
 
-Here, every stage inherits from defaults and then configurations can be overriden.
+Here, every stage inherits from defaults and then configurations can be
+overriden.
 
     defaults: &defaults
     
@@ -53,7 +58,10 @@ Watch out for this:
         host: production-box
         # port is now unset!
 
-That is, by overriding `server` all nested values have been 'deleted' because it has been overridden with a new hash. In this example, you would have to explicitly set `port` again in production. For this reason, it's probably best to avoid too much nesting...
+That is, by overriding `server` all nested values have been 'deleted' because
+it has been overridden with a new hash. In this example, you would have to
+explicitly set `port` again in production. For this reason, it's probably best
+to avoid too much nesting...
 
 
 ## Contributing to app-config

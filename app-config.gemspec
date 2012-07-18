@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Somers"]
-  s.date = "2012-07-17"
+  s.date = "2012-07-18"
   s.description = "app-config provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications"
   s.email = "jalada@gmail.com"
   s.extra_rdoc_files = [

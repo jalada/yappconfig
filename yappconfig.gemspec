@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/app-config.rb",
     "lib/app-config/railtie.rb",
+    "lib/yappconfig.rb",
     "spec/app-config/rails_spec.rb",
     "spec/app-config_spec.rb",
     "spec/config/config.yml",
@@ -83,7 +84,8 @@ Gem::Specification.new do |s|
     "spec/dummy/vendor/assets/javascripts/.gitkeep",
     "spec/dummy/vendor/assets/stylesheets/.gitkeep",
     "spec/dummy/vendor/plugins/.gitkeep",
-    "spec/spec_helper.rb"
+    "spec/spec_helper.rb",
+    "yappconfig.gemspec"
   ]
   s.homepage = "http://github.com/jalada/yappconfig"
   s.licenses = ["MIT"]

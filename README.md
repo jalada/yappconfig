@@ -80,7 +80,7 @@ explicitly set `port` again in production. For this reason, it's probably best
 to avoid too much nesting...
 
 
-## Contributing to app-config
+## Contributing to yappconfig
  
 * Check out the latest master to make sure the feature hasn't been implemented
   or the bug hasn't been fixed yet.

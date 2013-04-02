@@ -14,11 +14,11 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "app-config"
-  gem.homepage = "http://github.com/newsinternational/app-config"
+  gem.name = "yappconfig"
+  gem.homepage = "http://github.com/jalada/yappconfig"
   gem.license = "MIT"
   gem.summary = %Q{An application config, best for Rails apps}
-  gem.description = %Q{app-config provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications}
+  gem.description = %Q{yappconfig provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications}
   gem.email = "jalada@gmail.com"
   gem.authors = ["David Somers"]
 
@@ -44,7 +44,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "app-config #{version}"
+  rdoc.title = "yappconfig #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

@@ -1,10 +1,10 @@
-# AppConfig
+# yappconfig
 
 A clean way to use a YAML file for configuration.
 
 ## Configuring
 
-In Rails, AppConfig should Just Work™. For everything else you can configure it
+In Rails, yappconfig should Just Work™. For everything else you can configure it
 using a `configure` block: 
 
     AppConfig.configure do |config|
@@ -15,7 +15,7 @@ using a `configure` block:
 
 ## Sample configuration files
 
-AppConfig supports single stage and multi-stage files. In Rails it will expect
+yappconfig supports single stage and multi-stage files. In Rails it will expect
 a multi-stage file where the stages correspond with your Rails environment
 variable. It will also expect the configuration file to be in
 `config/config.yml` in the root of your application.

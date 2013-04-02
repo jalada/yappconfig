@@ -94,3 +94,5 @@ end
 
 # Alias for old applications
 APP_CONFIG = AppConfig
+# Alias for people who like to yap.
+YappConfig = YAPP_CONFIG = AppConfig

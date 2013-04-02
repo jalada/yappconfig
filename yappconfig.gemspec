@@ -4,13 +4,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "app-config"
-  s.version = "0.1.4"
+  s.name = "yappconfig"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Somers"]
-  s.date = "2012-07-18"
-  s.description = "app-config provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications"
+  s.date = "2013-04-02"
+  s.description = "yappconfig provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications"
   s.email = "jalada@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "app-config.gemspec",
     "lib/app-config.rb",
     "lib/app-config/railtie.rb",
     "spec/app-config/rails_spec.rb",
@@ -86,10 +85,10 @@ Gem::Specification.new do |s|
     "spec/dummy/vendor/plugins/.gitkeep",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/newsinternational/app-config"
+  s.homepage = "http://github.com/jalada/yappconfig"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.25"
   s.summary = "An application config, best for Rails apps"
 
   if s.respond_to? :specification_version then

@@ -7,8 +7,8 @@ require 'app-config/railtie'
 
 describe "AppConfig with Rails" do
 
-  before :each do 
-    AppConfig::Railtie.initializers.map{|i| i.run}
+  before do
+    ActiveSupport.run_load_hooks(:before_configuration)
   end
 
   it "Should default to the Rails environment" do
@@ -27,6 +27,8 @@ describe "AppConfig with Rails" do
 
   it "Doesn't auto-reload if the Rails environment is production" do
     Rails.env = "production"
+    ActiveSupport.run_load_hooks(:before_configuration)
+
     AppConfig::Railtie.initializers.map{|i| i.run}
     AppConfig.configuration.auto_reload.should_not == true
   end

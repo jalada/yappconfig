@@ -12,5 +12,5 @@ group :development do
   gem "jeweler", "~> 1.8.3"
   gem "simplecov"
 
-  gem "rails"
+  gem "rails", "~> 3.2.3"
 end

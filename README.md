@@ -2,6 +2,8 @@
 
 A clean way to use a YAML file for configuration.
 
+[![Gem Version](https://badge.fury.io/rb/yappconfig.svg)](https://badge.fury.io/rb/yappconfig)
+
 ## Configuring
 
 In Rails, yappconfig should Just Work™. For everything else you can configure it

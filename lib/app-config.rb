@@ -1,5 +1,6 @@
 require 'app-config/railtie' if defined?(Rails)
 require 'erb'
+require 'yaml'
 
 # Public: Application Configuration singleton. Config is stored within as 
 # a class
@@ -22,7 +23,14 @@ module AppConfig
     # Returns the new config.
     def initialize(options)
       @options = options
-      yaml = YAML.load(ERB.new(IO.read @options.config_file).result)
+      # Psych >= 4 defaults to safe_load which doesn't support aliases by
+      # default. However most yappconfig users use an alias, and also the file
+      # is written by the user so is safe. Let's support aliases.
+      yaml = if Gem::Version.new(Psych::VERSION) >= Gem::Version.new('4.0')
+               YAML.safe_load(ERB.new(IO.read @options.config_file).result, aliases: true)
+             else
+               YAML.load(ERB.new(IO.read @options.config_file).result)
+             end
       yaml = yaml[@options.environment] if @options.environment
       @config = Hashie::Mash.new yaml
       @last_mtime = File.mtime @options.config_file

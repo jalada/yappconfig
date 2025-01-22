@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["David Somers"]
-  s.date = "2015-08-18"
+  s.date = "2024-01-20"
   s.description = "yappconfig provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications"
   s.email = "jalada@gmail.com"
   s.extra_rdoc_files = [
@@ -99,29 +99,26 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<hashie>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
-      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_development_dependency(%q<rspec>, ["~> 3.0"])
+      s.add_development_dependency(%q<rdoc>, ["~> 6.11"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
-      s.add_development_dependency(%q<rails>, ["~> 3.2.3"])
+      s.add_development_dependency(%q<rails>, ["~> 7.0"])
     else
       s.add_dependency(%q<hashie>, [">= 0"])
-      s.add_dependency(%q<rspec>, ["~> 2.8.0"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_dependency(%q<rspec>, ["~> 3.0"])
+      s.add_dependency(%q<rdoc>, ["~> 6.11"])
       s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_dependency(%q<simplecov>, [">= 0"])
-      s.add_dependency(%q<rails>, ["~> 3.2.3"])
+      s.add_dependency(%q<rails>, ["~> 7.0"])
     end
   else
     s.add_dependency(%q<hashie>, [">= 0"])
-    s.add_dependency(%q<rspec>, ["~> 2.8.0"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
+    s.add_dependency(%q<rspec>, ["~> 3.0"])
+    s.add_dependency(%q<rdoc>, ["~> 6.11"])
     s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
     s.add_dependency(%q<simplecov>, [">= 0"])
-    s.add_dependency(%q<rails>, ["~> 3.2.3"])
+    s.add_dependency(%q<rails>, ["~> 7.0"])
   end
 end
 

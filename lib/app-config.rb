@@ -1,7 +1,7 @@
 require 'app-config/railtie' if defined?(Rails)
 require 'erb'
 
-# Public: Application Configuration singleton. Config is stored within as 
+# Public: Application Configuration singleton. Config is stored within as
 # a class
 module AppConfig
 
@@ -22,7 +22,7 @@ module AppConfig
     # Returns the new config.
     def initialize(options)
       @options = options
-      yaml = YAML.load(ERB.new(IO.read @options.config_file).result)
+      yaml = YAML.load(ERB.new(IO.read @options.config_file).result, aliases: true)
       yaml = yaml[@options.environment] if @options.environment
       @config = Hashie::Mash.new yaml
       @last_mtime = File.mtime @options.config_file
@@ -48,7 +48,7 @@ module AppConfig
   end
 
   # Public: Configure AppConfig. Note that repeated calls to configure will
-  # reset all configuration and clear the existing config class. Therefore you 
+  # reset all configuration and clear the existing config class. Therefore you
   # need to configure AppConfig all in one go, or alternatively access
   # configuration parameters directly e.g. AppConfig.configuration.config_file
   #

@@ -8,7 +8,7 @@ require 'app-config'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  
+  config.expect_with :rspec
   config.before(:each) do
     # Simulate it being loaded for the first time; empty config.
     # TODO: Can you force reload?

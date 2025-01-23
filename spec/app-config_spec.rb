@@ -1,24 +1,22 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "AppConfig" do
-
-
+RSpec.describe "AppConfig" do
   it "Should be accessible through APP_CONFIG too" do
-    APP_CONFIG.should == AppConfig
+    expect(APP_CONFIG).to eq AppConfig
   end
 
   it "Should set a config file" do
     AppConfig.configure do |config|
       config.config_file = config_file("test.yml")
     end
-    AppConfig.configuration.config_file.should == config_file("test.yml")
+    expect(AppConfig.configuration.config_file).to eq config_file("test.yml")
   end
 
   it "Should set an environment" do
     AppConfig.configure do |config|
       config.environment = "production"
     end
-    AppConfig.configuration.environment.should == "production"
+    expect(AppConfig.configuration.environment).to eq "production"
   end
 
   it "Should raise an exception if config is accessed without setting a file" do
@@ -26,7 +24,7 @@ describe "AppConfig" do
   end
 
   it "Should default to autoreload" do
-    AppConfig.configuration.auto_reload.should == true
+    expect(AppConfig.configuration.auto_reload).to eq true
   end
 
   describe "accessing the config" do
@@ -38,7 +36,7 @@ describe "AppConfig" do
       end
 
       it "Should work" do
-        AppConfig.simple_config.should == "is simple"
+        expect(AppConfig.simple_config).to eq "is simple"
       end
     end
 
@@ -50,11 +48,11 @@ describe "AppConfig" do
     end
 
     it "Should support dot notation" do
-      AppConfig.test_key.should == "value"
+      expect(AppConfig.test_key).to eq "value"
     end
 
     it "Should support square bracket notation" do
-      AppConfig[:test_key].should == "value"
+      expect(AppConfig["test_key"]).to eq "value"
     end
 
     describe "With auto-reload" do
@@ -76,11 +74,11 @@ describe "AppConfig" do
       end
 
       it "Should auto_reload on file change" do
-        AppConfig.test_key.should == 1
+        expect(AppConfig.test_key).to eq 1
         f = File.open(config_file("reloader.yml"), "w")
         f.write(@original.gsub(/1/, "2"))
         f.close
-        AppConfig.test_key.should == 2
+        expect(AppConfig.test_key).to eq 2
       end
     end
   end

@@ -1,0 +1,2 @@
+complex_erb: <%= "Has some" + " complexity" %>
+non_string_erb: <%= 42 %>

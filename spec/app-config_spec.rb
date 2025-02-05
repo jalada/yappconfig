@@ -81,5 +81,18 @@ RSpec.describe "AppConfig" do
         expect(AppConfig.test_key).to eq 2
       end
     end
+
+    describe "When the config contains ERB" do
+      before :each do
+        AppConfig.configure do |config|
+          config.config_file = config_file("erb.yml")
+        end
+      end
+
+      it "works" do
+        expect(AppConfig.complex_erb).to eq "Has some complexity"
+        expect(AppConfig.non_string_erb).to eq 42
+      end
+    end
   end
 end

@@ -5,24 +5,24 @@ require File.expand_path("../../dummy/config/environment.rb",  __FILE__)
 
 require 'app-config/railtie'
 
-describe "AppConfig with Rails" do
+RSpec.describe "AppConfig with Rails" do
 
   before do
     ActiveSupport.run_load_hooks(:before_configuration)
   end
 
   it "Should default to the Rails environment" do
-    AppConfig.configuration.environment.should == Rails.env
+    expect(AppConfig.configuration.environment).to eq Rails.env
   end
 
   it "Should default to Rails.root/config/config.yml" do
-    AppConfig.configuration.config_file.should == Rails.root.join("config/config.yml")
+    expect(AppConfig.configuration.config_file).to eq Rails.root.join("config/config.yml")
   end
 
   it "Auto reloads if the Rails environment is development" do
     Rails.env = "development"
     AppConfig::Railtie.initializers.map{|i| i.run}
-    AppConfig.configuration.auto_reload.should == true
+    expect(AppConfig.configuration.auto_reload).to eq true
   end
 
   it "Doesn't auto-reload if the Rails environment is production" do
@@ -30,8 +30,6 @@ describe "AppConfig with Rails" do
     ActiveSupport.run_load_hooks(:before_configuration)
 
     AppConfig::Railtie.initializers.map{|i| i.run}
-    AppConfig.configuration.auto_reload.should_not == true
+    expect(AppConfig.configuration.auto_reload).to eq false
   end
-
-
 end

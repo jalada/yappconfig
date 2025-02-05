@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["David Somers"]
-  s.date = "2024-01-20"
+  s.date = "2025-02-05"
   s.description = "yappconfig provides your application with a global configuration based on the environment. The configuration is loaded in from YAML. It has sensible defaults for Rails applications"
-  s.email = "jalada@gmail.com"
+  s.email = "david@jalada.co.uk"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"

@@ -4,6 +4,14 @@ A clean way to use a YAML file for configuration.
 
 [![Gem Version](https://badge.fury.io/rb/yappconfig.svg)](https://badge.fury.io/rb/yappconfig)
 
+## Requirements
+
+Your app must be using Psych 4 or newer. This means you probably need to be
+using Ruby 3.1 or newer, and Rails 7 or newer.
+
+If you want to use yappconfig with an older version of Ruby or Rails, lock
+yappconfig to `< 1` in your Gemfile.
+
 ## Configuring
 
 In Rails, yappconfig should Just Work™. For everything else you can configure it
@@ -109,6 +117,6 @@ rspec
 
 ## Copyright
 
-Copyright (c) 2012 David Somers <jalada@gmail.com>. See LICENSE.txt for further
+Copyright (c) David Somers <david@jalada.co.uk>. See LICENSE.txt for further
 details.
 

@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = "2.4.8"
   s.summary = "An application config, best for Rails apps"
 
+  s.required_ruby_version = ">= 3.1"
   s.add_runtime_dependency "hashie", ">= 0"
   s.add_development_dependency "rspec", "~> 3.0"
   s.add_development_dependency "rdoc", "~> 6.11"

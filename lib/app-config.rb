@@ -22,7 +22,7 @@ module AppConfig
     # Returns the new config.
     def initialize(options)
       @options = options
-      yaml = YAML.load(ERB.new(IO.read @options.config_file).result, aliases: true)
+      yaml = YAML.safe_load(ERB.new(IO.read @options.config_file).result, aliases: true)
       yaml = yaml[@options.environment] if @options.environment
       @config = Hashie::Mash.new yaml
       @last_mtime = File.mtime @options.config_file

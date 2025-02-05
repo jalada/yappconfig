@@ -81,6 +81,16 @@ it has been overridden with a new hash. In this example, you would have to
 explicitly set `port` again in production. For this reason, it's probably best
 to avoid too much nesting...
 
+## Running the tests
+
+```
+bundle install
+cd spec/dummy
+bundle install
+cd ../..
+rspec
+````
+
 
 ## Contributing to yappconfig
  
